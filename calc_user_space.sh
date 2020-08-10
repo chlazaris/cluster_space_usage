@@ -55,3 +55,8 @@ cut -d' ' -f3 younglab_users.txt | sort | uniq > younglab_user_IDs.txt
 
 # Run the script to calculate usage per user
 $script_dir/usagebyuser.sh younglab_user_IDs.txt younglab_users.txt
+
+# Calculate total space, space occupied and space left (in GB)
+df -BG $source_dir | sed 1d | awk '{print $2}' | sed 's/G//' > total_disk_space_in_GB.txt
+df -BG $source_dir | sed 1d | awk '{print $3}' | sed 's/G//' > used_disk_space_in_GB.txt
+df -BG $source_dir | sed 1d | awk '{print $4}' | sed 's/G//' > free_disk_space_in_GB.txt
