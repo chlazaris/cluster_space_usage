@@ -1,0 +1,3 @@
+#!/bin/bash
+
+bsub /lab/solexa_young/lazaris/code/space_usage/calc_user_space.sh /lab/solexa_young/
